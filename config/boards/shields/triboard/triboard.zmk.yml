@@ -1,0 +1,11 @@
+file_format: "1"
+id: triboard
+name: Triboard
+type: shield
+url: https://github.com/tarneaux/triboard
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+siblings:
+  - triboard_left
+  - triboard_right

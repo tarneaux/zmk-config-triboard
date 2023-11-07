@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "totem.dtsi"
+#include "triboard.dtsi"
 
 &default_transform {
     col-offset = <5>;
