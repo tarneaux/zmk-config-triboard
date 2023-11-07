@@ -30,7 +30,7 @@
 &lt {
   quick-tap-ms = <100>;
   global-quick-tap;
-  flavor = "tap-preferred";
+  flavor = "hold-preferred";
   tapping-term-ms = <170>;
 };
 
