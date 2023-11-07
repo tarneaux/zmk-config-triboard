@@ -94,7 +94,7 @@ label= "SYM";
     &kp ESC     &kp AT_SIGN      &kp AMPERSAND    &kp DOLLAR     &kp PERCENT           &kp CARET  &kp EQUAL  &kp PLUS  &kp F13  &kp F14
     &kp HASH    &kp LPAR         &kp LBRC         &kp LBKT       &kp MINUS             &kp BSLH   &kp RBKT   &kp RBRC  &kp RPAR  &kp PIPE
     &kp F17     &kp ASTERISK     &kp SQT          &kp DQT        &kp UNDERSCORE        &kp GRAVE  &kp TILDE  &kp EXCL  &kp F15  &kp F16
-                                 &trans           &trans         &trans                &trans     &trans     &trans
+                                 &trans           &trans         &trans                &kp DEL    &trans     &trans
                         >;
                 };
 
