@@ -1,14 +1,13 @@
-//
-//                                                        ▀▀▀▀▀     ▀▀▀▀▀          ▀▀█▀▀
-//                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
-//                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
-//                                                               █      ▄▄▄█▄▄▄    █   █  
-//                                                               ▀      █  █  █     █▄█
-//                                                             ▀▀▀▀▀    █  █  █      ▀
-//                                                                      ▀  ▀  ▀
-//
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-       
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠈⠉⠉⠉⠛⠻⢿⣿⣿⣿⣿⣿⣷⡀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣿⣿⣿⣷⡄⠀
+// ⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢿⣿⣿⡄
+// ⠀⢀⣴⣾⣿⣿⣿⣷⣦⣄⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉
+// ⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -27,7 +26,27 @@
   tapping-term-ms = <170>;
 };
 
+&lt {
+  quick-tap-ms = <100>;
+  global-quick-tap;
+  flavor = "hold-preferred";
+  tapping-term-ms = <170>;
+};
+
 / {
+    macros {
+            gif: gif {
+                label = "giphy";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp LSHFT>
+                    , <&macro_tap &kp N2>
+                    , <&macro_release &kp LSHFT>
+                    , <&macro_tap &kp G &kp I &kp F>
+                    ;
+            };
+    };
      combos {
             compatible = "zmk,combos";
             combo_gui {
@@ -59,9 +78,9 @@ label= "BASE";
 //                         ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
      &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SEMI
-     &kp A       &kp R       &kp S       &kp T       &kp D           &kp H       &kp N       &mt E       &mt I       &kp O
+     &kp A       &kp R       &kp S       &kp T       &kp D           &kp H       &kp N       &kp E       &kp I       &kp O
      &kp Z       &kp X       &kp C       &kp G       &kp V           &kp K       &kp M       &kp COMMA   &kp DOT     &kp FSLH
-                             &none   &mt LSHFT TAB   &lt NAV SPACE   &kp BSPC    &lt SYM RET &none
+                             &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
                         >;
                 };
 
@@ -74,7 +93,7 @@ label= "SYM";
     &kp ESC     &kp AT_SIGN      &kp AMPERSAND    &kp DOLLAR     &kp PERCENT           &kp CARET  &kp EQUAL  &kp PLUS  &kp F13  &kp F14
     &kp HASH    &kp LPAR         &kp LBRC         &kp LBKT       &kp MINUS             &kp BSLH   &kp RBKT   &kp RBRC  &kp RPAR  &kp PIPE
     &kp F17     &kp ASTERISK     &kp SQT          &kp DQT        &kp UNDERSCORE        &kp GRAVE  &kp TILDE  &kp EXCL  &kp F15  &kp F16
-                                 &trans           &trans         &trans                &trans     &trans     &trans
+                                 &trans           &trans         &trans                &kp DEL    &trans     &trans
                         >;
                 };
 
@@ -82,11 +101,11 @@ label= "SYM";
 
 
                 nav_layer {
-label= "NAVI";
+label= "NAV";
  bindings = <
-                &kp N1            &bt N2               &kp N3             &kp N4      &kp N5                &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+                &kp N1            &kp N2               &kp N3             &kp N4      &kp N5                &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
                 &kp C_PREVIOUS    &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_NEXT  &none                 &none       &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
-                &none             &none                &none              &kp C_PP    &none                 &none       &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
+                &kp F18             &none                &none              &kp C_PP    &none                 &none       &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
                                                        &trans             &trans      &mo ADJ               &trans      &trans      &trans
                         >;
                 };
