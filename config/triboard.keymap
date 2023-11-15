@@ -13,6 +13,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include "helper.h"
 
 #define BASE 0
 #define SYM 1
@@ -25,6 +26,33 @@
   flavor = "hold-preferred";
   tapping-term-ms = <170>;
 };
+
+// Urob's timeless home row mods: see https://github.com/urob/zmk-config#timeless-homerow-mods
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
+#define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
+#define KEYS_THUMBS 32 33 34 35 36 37
+
+/* left-hand HRMs */
+ZMK_BEHAVIOR(hml, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
+
+/* right-hand HRMs */
+ZMK_BEHAVIOR(hmr, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L KEYS_THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
 
 &lt {
   quick-tap-ms = <100>;
@@ -47,20 +75,6 @@
                     ;
             };
     };
-     combos {
-            compatible = "zmk,combos";
-            combo_gui {
-                timeout-ms = <50>;
-                key-positions = <11 13>;
-                bindings = <&sk LGUI>;
-            };
-            combo_ctrl {
-                timeout-ms = <50>;
-                key-positions = <16 18>;
-                bindings = <&sk LCTRL>;
-            };
-    };
-
         keymap {
                 compatible = "zmk,keymap";
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -77,10 +91,10 @@ label= "BASE";
 //                         ┃           ┃    TAB    ┃    SPC    ┃   ┃   BSPC    ┃    ENT    ┃           ┃
 //                         ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
-     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SEMI
-     &kp A       &kp R       &kp S       &kp T       &kp D           &kp H       &kp N       &kp E       &kp I       &kp O
-     &kp Z       &kp X       &kp C       &kp G       &kp V           &kp K       &kp M       &kp COMMA   &kp DOT     &kp FSLH
-                             &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
+     &kp Q       &kp W        &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y        &kp SEMI
+     &hml LGUI A &hml LCTRL R &kp S       &kp T       &kp D           &kp H       &kp N       &kp E       &hmr LCTRL I &hmr LGUI O
+     &kp Z       &kp X        &kp C       &kp G       &kp V           &kp K       &kp M       &kp COMMA   &kp DOT      &kp FSLH
+                              &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
                         >;
                 };
 
@@ -90,10 +104,10 @@ label= "BASE";
                 sim_layer {
 label= "SYM";
  bindings = <
-    &kp ESC     &kp AT_SIGN      &kp AMPERSAND    &kp DOLLAR     &kp PERCENT           &kp CARET  &kp EQUAL  &kp PLUS  &kp F13  &kp F14
-    &kp HASH    &kp LPAR         &kp LBRC         &kp LBKT       &kp MINUS             &kp BSLH   &kp RBKT   &kp RBRC  &kp RPAR  &kp PIPE
-    &kp F17     &kp ASTERISK     &kp SQT          &kp DQT        &kp UNDERSCORE        &kp GRAVE  &kp TILDE  &kp EXCL  &kp F15  &kp F16
-                                 &trans           &trans         &trans                &kp DEL    &trans     &trans
+    &kp ESC        &kp AT_SIGN      &kp AMPERSAND    &kp DOLLAR     &kp PERCENT           &kp CARET  &kp EQUAL  &kp PLUS  &kp F13          &kp F14
+    &hml LGUI HASH &hml LCTRL LPAR  &kp LBRC         &kp LBKT       &kp MINUS             &kp BSLH   &kp RBKT   &kp RBRC  &hml LCTRL RPAR  &hml LCTRL PIPE
+    &kp F17        &kp ASTERISK     &kp SQT          &kp DQT        &kp UNDERSCORE        &kp GRAVE  &kp TILDE  &kp EXCL  &kp F15          &kp F16
+                                    &trans           &trans         &trans                &kp DEL    &trans     &trans
                         >;
                 };
 
@@ -103,10 +117,10 @@ label= "SYM";
                 nav_layer {
 label= "NAV";
  bindings = <
-                &kp N1            &kp N2               &kp N3             &kp N4      &kp N5                &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
-                &kp C_PREVIOUS    &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_NEXT  &none                 &none       &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
-                &kp F18           &none                &none              &kp C_PP    &none                 &none       &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
-                                                       &trans             &trans      &mo ADJ               &trans      &trans      &trans
+                &kp N1       &kp N2               &kp N3             &kp N4      &kp N5                &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+                &kp LGUI     &kp LCTRL            &kp C_PREVIOUS     &kp C_NEXT  &none                 &kp LCTRL   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
+                &kp F18      &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &none                 &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
+                                                  &trans             &trans      &mo ADJ               &trans      &trans      &trans
                         >;
                 };
 
@@ -130,7 +144,7 @@ label= "ADJ"                               ;
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &sys_reset  &bt BT_CLR &out OUT_TOG &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
-                &bootloader &bt BT_NXT  &trans      &trans      &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11  
+                &bootloader &bt BT_NXT  &kp LCTRL   &kp LGUI    &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11  
                 &trans      &bt BT_PRV  &trans      &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10 
                                         &trans      &trans      &trans          &trans      &trans      &trans      
                         >;
