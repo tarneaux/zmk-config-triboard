@@ -91,10 +91,10 @@ label= "BASE";
 //                         ┃           ┃    TAB    ┃    SPC    ┃   ┃   BSPC    ┃    ENT    ┃           ┃
 //                         ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
-     &kp Q       &kp W        &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y        &kp SEMI
-     &hml LGUI A &hml LCTRL R &kp S       &kp T       &kp D           &kp H       &kp N       &kp E       &hmr LCTRL I &hmr LGUI O
-     &kp Z       &kp X        &kp C       &kp G       &kp V           &kp K       &kp M       &kp COMMA   &kp DOT      &kp FSLH
-                              &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
+     &kp Q        &kp W        &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y        &kp SEMI
+     &hml LCTRL A &hml LGUI R  &kp S       &kp T       &kp D           &kp H       &kp N       &kp E       &hmr LGUI I  &hmr LCTRL O
+     &kp Z        &kp X        &kp C       &kp G       &kp V           &kp K       &kp M       &kp COMMA   &kp DOT      &kp FSLH
+                               &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
                         >;
                 };
 
@@ -104,10 +104,10 @@ label= "BASE";
                 sim_layer {
 label= "SYM";
  bindings = <
-    &kp ESC        &kp AT_SIGN      &kp AMPERSAND    &kp DOLLAR     &kp PERCENT           &kp CARET  &kp EQUAL  &kp PLUS  &kp F13          &kp F14
-    &hml LGUI HASH &hml LCTRL LPAR  &kp LBRC         &kp LBKT       &kp MINUS             &kp BSLH   &kp RBKT   &kp RBRC  &hml LCTRL RPAR  &hml LCTRL PIPE
-    &kp F17        &kp ASTERISK     &kp SQT          &kp DQT        &kp UNDERSCORE        &kp GRAVE  &kp TILDE  &kp EXCL  &kp F15          &kp F16
-                                    &trans           &trans         &trans                &kp DEL    &trans     &trans
+    &kp ESC         &kp AT_SIGN      &kp AMPERSAND    &kp DOLLAR     &kp PERCENT           &kp CARET  &kp EQUAL  &kp PLUS  &kp F13          &kp F14
+    &hml LCTRL HASH &hml LGUI LPAR   &kp LBRC         &kp LBKT       &kp MINUS             &kp BSLH   &kp RBKT   &kp RBRC  &hml LGUI RPAR   &hml LCTRL PIPE
+    &kp F17         &kp ASTERISK     &kp SQT          &kp DQT        &kp UNDERSCORE        &kp GRAVE  &kp TILDE  &kp EXCL  &kp F15          &kp F16
+                                     &trans           &trans         &trans                &kp DEL    &trans     &trans
                         >;
                 };
 
@@ -117,10 +117,10 @@ label= "SYM";
                 nav_layer {
 label= "NAV";
  bindings = <
-                &kp N1       &kp N2               &kp N3             &kp N4      &kp N5                &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
-                &kp LGUI     &kp LCTRL            &kp C_PREVIOUS     &kp C_NEXT  &none                 &kp LCTRL   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
-                &kp F18      &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &none                 &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
-                                                  &trans             &trans      &mo ADJ               &trans      &trans      &trans
+                &kp N1        &kp N2               &kp N3             &kp N4      &kp N5                &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+                &kp LCTRL     &kp LGUI             &kp C_PREVIOUS     &kp C_NEXT  &none                 &kp LCTRL   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
+                &kp F18       &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &none                 &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
+                                                   &trans             &trans      &mo ADJ               &trans      &trans      &trans
                         >;
                 };
 
