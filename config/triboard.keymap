@@ -54,6 +54,14 @@ ZMK_BEHAVIOR(hmr, hold_tap,
     hold-trigger-on-release;             // delay positional check until key-release
 )
 
+/* long press to prevent clearing bluetooth bond accidentally */
+ZMK_BEHAVIOR(longbt, hold_tap,
+    flavor = "tap-preferred";
+    tapping-term-ms = <1000>;
+    require-prior-idle-ms = <500>;
+    bindings = <&none>, <&bt>;
+)
+
 &lt {
   quick-tap-ms = <100>;
   global-quick-tap;
@@ -143,10 +151,10 @@ label= "ADJ"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &sys_reset  &bt BT_CLR    &out OUT_TOG &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
-                &bootloader &bt BT_SEL 0  &kp LCTRL    &kp LGUI    &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11  
-                &trans      &bt BT_SEL 1  &bt BT_SEL 2 &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10 
-                                          &trans       &trans      &trans          &trans      &trans      &trans      
+                &sys_reset  &out OUT_TOG  &longbt BT_CLR &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
+                &bootloader &bt BT_SEL 0  &kp LCTRL      &kp LGUI    &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11  
+                &trans      &bt BT_SEL 1  &bt BT_SEL 2   &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10 
+                                          &trans         &trans      &trans          &trans      &trans      &trans      
                         >;
                 };
         };
