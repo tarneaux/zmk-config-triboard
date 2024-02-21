@@ -14,6 +14,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include "helper.h"
+#include "keys_fr.h"
 
 #define BASE 0
 #define SYM 1
@@ -67,6 +68,26 @@ ZMK_BEHAVIOR(tdbtclr, tap_dance,
   tapping-term-ms = <170>;
 };
 
+// Keep the US keyboard's shift behaviors on the french virtual layout
+
+ZMK_BEHAVIOR(comma_lt, mod_morph,
+    mods = <(MOD_LSFT | MOD_RSFT)>;
+    bindings = <&kp FR_COMMA>, <&kp FR_LT>;
+)
+ZMK_BEHAVIOR(dot_gt, mod_morph,
+    mods = <(MOD_LSFT | MOD_RSFT)>;
+    bindings = <&kp FR_DOT>, <&kp FR_GT>;
+)
+ZMK_BEHAVIOR(slash_question, mod_morph,
+    mods = <(MOD_LSFT | MOD_RSFT)>;
+    bindings = <&kp FR_FSLH>, <&kp FR_QUESTION>;
+)
+ZMK_BEHAVIOR(semicolon_colon, mod_morph,
+    mods = <(MOD_LSFT | MOD_RSFT)>;
+    bindings = <&kp FR_SEMI>, <&kp FR_COLON>;
+)
+
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -86,10 +107,10 @@ ZMK_BEHAVIOR(tdbtclr, tap_dance,
 //                         ┃           ┃    TAB    ┃    SPC    ┃   ┃    BSPC   ┃    ENT    ┃           ┃
 //                         ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
-     &kp Q        &kp W        &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y        &kp SEMI
-     &hml LCTRL A &hml LGUI R  &kp S       &kp T       &kp D           &kp H       &kp N       &kp E       &hmr LGUI I  &hmr LCTRL O
-     &kp Z        &kp X        &kp C       &kp G       &kp V           &kp K       &kp M       &kp COMMA   &kp DOT      &kp FSLH
-                               &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
+     &kp FR_Q        &kp FR_W       &kp FR_F    &kp FR_P    &kp FR_B        &kp FR_J    &kp FR_L    &kp FR_U       &kp FR_Y       &semicolon_colon
+     &hml LCTRL FR_A &hml LGUI FR_R &kp FR_S    &kp FR_T    &kp FR_D        &kp FR_H    &kp FR_N    &kp FR_E       &hmr LGUI FR_I &hmr LCTRL FR_O
+     &kp FR_Z        &kp FR_X       &kp FR_C    &kp FR_G    &kp FR_V        &kp FR_K    &kp FR_M    &comma_lt      &dot_gt        &slash_question
+                                    &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
                         >;
         };
 
@@ -101,19 +122,19 @@ ZMK_BEHAVIOR(tdbtclr, tap_dance,
             label= "SYM";
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃    ESC    ┃     @     ┃     &     ┃     $     ┃     %     ┃   ┃     ^     ┃     =     ┃     +     ┃  F13 -> é ┃  F14 -> è ┃
+//             ┃    ESC    ┃     @     ┃     &     ┃     $     ┃     %     ┃   ┃ ^ (alone) ┃     =     ┃     +     ┃     é     ┃     è     ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
 //             ┃     #     ┃     (     ┃     {     ┃     [     ┃     -     ┃   ┃     \     ┃     ]     ┃     }     ┃     )     ┃     |     ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃ F17 -> ç  ┃     *     ┃     '     ┃     "     ┃     _     ┃   ┃     `     ┃     ~     ┃     !     ┃  F15 -> à ┃  F16 -> ^ ┃
+//             ┃     ç     ┃     *     ┃     '     ┃     "     ┃     _     ┃   ┃     `     ┃     ~     ┃     !     ┃     à     ┃  ^ (dead) ┃
 //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┛
 //                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
-    &kp ESC         &kp AT_SIGN      &kp AMPERSAND    &kp DOLLAR     &kp PERCENT           &kp CARET  &kp EQUAL  &kp PLUS  &kp F13          &kp F14
-    &hml LCTRL HASH &hml LGUI LPAR   &kp LBRC         &kp LBKT       &kp MINUS             &kp BSLH   &kp RBKT   &kp RBRC  &hml LGUI RPAR   &hml LCTRL PIPE
-    &kp F17         &kp ASTERISK     &kp SQT          &kp DQT        &kp UNDERSCORE        &kp GRAVE  &kp TILDE  &kp EXCL  &kp F15          &kp F16
-                                     &trans           &trans         &trans                &kp DEL    &trans     &trans
+    &kp ESC            &kp FR_AT_SIGN    &kp FR_AMPERSAND &kp FR_DOLLAR &kp FR_PERCENT        &kp FR_CARET &kp FR_EQUAL  &kp FR_PLUS  &kp FR_E_ACUTE    &kp FR_E_GRAVE
+    &hml LCTRL FR_HASH &hml LGUI FR_LPAR &kp FR_LBRC      &kp FR_LBKT   &kp FR_MINUS          &kp FR_BSLH  &kp FR_RBKT   &kp FR_RBRC  &hml LGUI FR_RPAR &hml LCTRL FR_PIPE
+    &kp FR_C_CEDILLA   &kp FR_ASTERISK   &kp FR_SQT       &kp FR_DQT    &kp FR_UNDERSCORE     &kp FR_GRAVE &kp FR_TILDE  &kp FR_EXCL  &kp FR_A_GRAVE    &kp FR_CIRCUMFLEX
+                                        &trans           &trans         &trans                &kp DEL      &trans     &trans
                         >;
         };
 
@@ -127,18 +148,17 @@ ZMK_BEHAVIOR(tdbtclr, tap_dance,
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓                          ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
 //             ┃     1     ┃     2     ┃     3     ┃     4     ┃     5     ┃                          ┃     6     ┃     7     ┃     8     ┃     9     ┃     0     ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫                          ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃   CTRL    ┃    GUI    ┃    ◂◂     ┃     ▸▸    ┃ F19 -> ·  ┃                          ┃   CTRL    ┃     ←     ┃     ↑     ┃     →     ┃     ↓     ┃
+//             ┃   CTRL    ┃    GUI    ┃    ◂◂     ┃     ▸▸    ┃     ·     ┃                          ┃   CTRL    ┃     ←     ┃     ↑     ┃     →     ┃     ↓     ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫                          ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃ F18 -> ù  ┃          ┃          ┃    ▸▮▮    ┃           ┃                          ┃    GUI    ┃     ⇤     ┃    PDN    ┃    PUP    ┃     ⇥     ┃
+//             ┃     ù     ┃          ┃          ┃    ▸▮▮    ┃           ┃                          ┃    GUI    ┃     ⇤     ┃    PDN    ┃    PUP    ┃     ⇥     ┃
 //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫                          ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┛
 //                                     ┃           ┃           ┃           ┃                          ┃           ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛                          ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
-//             ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-                &kp N1        &kp N2               &kp N3             &kp N4      &kp N5                &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
-                &kp LCTRL     &kp LGUI             &kp C_PREVIOUS     &kp C_NEXT  &kp F19               &kp LCTRL   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
-                &kp F18       &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &none                 &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
-                                                   &trans             &trans      &mo ADJ               &trans      &trans      &trans
+                &kp FR_N1      &kp FR_N2            &kp FR_N3          &kp FR_N4   &kp FR_N5             &kp FR_N6   &kp FR_N7   &kp FR_N8   &kp FR_N9   &kp FR_N0
+                &kp LCTRL      &kp LGUI             &kp C_PREVIOUS     &kp C_NEXT  &kp FR_MIDDLE_DOT     &kp LCTRL   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
+                &kp FR_U_GRAVE &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &none                 &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
+                                                    &trans             &trans      &mo ADJ               &trans      &trans      &trans
                         >;
         };
 
@@ -159,7 +179,6 @@ ZMK_BEHAVIOR(tdbtclr, tap_dance,
 //                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
-//             ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &sys_reset  &out OUT_TOG  &tdbtclr     &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
                 &bootloader &bt BT_SEL 0  &kp LCTRL    &kp LGUI    &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11  
