@@ -150,14 +150,14 @@ ZMK_BEHAVIOR(semicolon_colon, mod_morph,
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫                          ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
 //             ┃   CTRL    ┃    GUI    ┃    ◂◂     ┃     ▸▸    ┃     ·     ┃                          ┃   CTRL    ┃     ←     ┃     ↑     ┃     →     ┃     ↓     ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫                          ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃     ù     ┃          ┃          ┃    ▸▮▮    ┃           ┃                          ┃    GUI    ┃     ⇤     ┃    PDN    ┃    PUP    ┃     ⇥     ┃
+//             ┃     ù     ┃          ┃          ┃    ▸▮▮    ┃     €     ┃                          ┃    GUI    ┃     ⇤     ┃    PDN    ┃    PUP    ┃     ⇥     ┃
 //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫                          ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┛
 //                                     ┃           ┃           ┃           ┃                          ┃           ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛                          ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
                 &kp FR_N1      &kp FR_N2            &kp FR_N3          &kp FR_N4   &kp FR_N5             &kp FR_N6   &kp FR_N7   &kp FR_N8   &kp FR_N9   &kp FR_N0
                 &kp LCTRL      &kp LGUI             &kp C_PREVIOUS     &kp C_NEXT  &kp FR_MIDDLE_DOT     &kp LCTRL   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
-                &kp FR_U_GRAVE &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &none                 &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
+                &kp FR_U_GRAVE &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &kp FR_EURO           &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
                                                     &trans             &trans      &mo ADJ               &trans      &trans      &trans
                         >;
         };
