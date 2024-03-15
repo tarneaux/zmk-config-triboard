@@ -128,7 +128,7 @@ ZMK_BEHAVIOR(semicolon_colon, mod_morph,
      &kp FR_Q        &kp FR_W       &kp FR_F    &kp FR_P    &kp FR_B        &kp FR_J    &kp FR_L    &kp FR_U       &kp FR_Y       &semicolon_colon
      &hml LCTRL FR_A &hml LGUI FR_R &kp FR_S    &kp FR_T    &kp FR_D        &kp FR_H    &kp FR_N    &kp FR_E       &hmr LGUI FR_I &hmr LCTRL FR_O
      &kp FR_Z        &kp FR_X       &kp FR_C    &kp FR_G    &kp FR_V        &kp FR_K    &kp FR_M    &comma_lt      &dot_gt        &slash_question
-                                    &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
+                                    &none   &mt LSHFT TAB   &kp SPACE       &mo SYM     &lt NAV RET &none
                         >;
         };
 
