@@ -93,7 +93,7 @@ ZMK_BEHAVIOR(semicolon_colon, mod_morph,
 ZMK_BEHAVIOR(capitalized, macro_one_param,
     bindings =
         <&macro_tap &kp CAPSLOCK>,
-        <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>
+        <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>,
         <&macro_tap &kp CAPSLOCK>;
 )
 
