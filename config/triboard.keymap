@@ -97,9 +97,9 @@ ZMK_BEHAVIOR(capitalized, macro_one_param,
         <&macro_tap &kp CAPSLOCK>;
 )
 
-#define CAPITALIZABLE(name, kc) ZMK_BEHAVIOR(name, mod_morph,
-    mods = <(MOD_LSFT | MOD_RSFT)>;
-    bindings = <&kp kc>, <&capitalized kc>;
+#define CAPITALIZABLE(name, kc) ZMK_BEHAVIOR(# name, mod_morph, \
+    mods = <(MOD_LSFT | MOD_RSFT)>; \
+    bindings = <&kp kc>, <&capitalized kc>; \
 )
 
 CAPITALIZABLE(FR_C_CEDILLA, FR_C_CEDILLA)
