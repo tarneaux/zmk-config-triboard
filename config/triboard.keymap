@@ -87,6 +87,26 @@ ZMK_BEHAVIOR(semicolon_colon, mod_morph,
     bindings = <&kp FR_SEMI>, <&kp FR_COLON>;
 )
 
+// Allow capital french keys (ç, é, è, à, ù) to be typed with a single key press
+// To type a capital letter, toggle the caps lock key and press the key again
+// Let's start by defining a macro for each of these capital letters
+ZMK_BEHAVIOR(capitalized, macro_one_param,
+    bindings =
+        <&macro_tap &kp CAPSLOCK>,
+        <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>
+        <&macro_tap &kp CAPSLOCK>;
+)
+
+#define CAPITALIZABLE(name, kc) ZMK_BEHAVIOR(name, mod_morph,
+    mods = <(MOD_LSFT | MOD_RSFT)>;
+    bindings = <&kp kc>, <&capitalized kc>;
+)
+
+CAPITALIZABLE(FR_C_CEDILLA, FR_C_CEDILLA)
+CAPITALIZABLE(FR_E_ACUTE, FR_E_ACUTE)
+CAPITALIZABLE(FR_E_GRAVE, FR_E_GRAVE)
+CAPITALIZABLE(FR_A_GRAVE, FR_A_GRAVE)
+CAPITALIZABLE(FR_U_GRAVE, FR_U_GRAVE)
 
 / {
     combos {
