@@ -109,24 +109,6 @@ CAPITALIZABLE(a_grave, FR_A_GRAVE)
 CAPITALIZABLE(u_grave, FR_U_GRAVE)
 
 / {
-    combos {
-        compatible = "zmk,combos";
-        combo_bspc {
-            timeout-ms = <50>;
-            key-positions = <6 7>; // L + U
-            bindings = <&kp BSPC>;
-        };
-        combo_del {
-            timeout-ms = <50>;
-            key-positions = <7 8>; // U + Y
-            bindings = <&kp DEL>;
-        };
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <1 2>; // Q + W
-            bindings = <&kp ESC>;
-        };
-    };
     keymap {
         compatible = "zmk,keymap";
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
