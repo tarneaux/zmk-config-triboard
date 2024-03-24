@@ -102,37 +102,11 @@ ZMK_BEHAVIOR(capitalized, macro_one_param,
     bindings = <&kp kc>, <&capitalized kc>; \
 )
 
-// CAPITALIZABLE(FR_C_CEDILLA, FR_C_CEDILLA)
-// CAPITALIZABLE(FR_E_ACUTE, FR_E_ACUTE)
-// CAPITALIZABLE(FR_E_GRAVE, FR_E_GRAVE)
-// CAPITALIZABLE(FR_A_GRAVE, FR_A_GRAVE)
-// CAPITALIZABLE(FR_U_GRAVE, FR_U_GRAVE)
-
-ZMK_BEHAVIOR(c_cedilla, mod_morph,
-    mods = <(MOD_LSFT | MOD_RSFT)>;
-    bindings = <&kp FR_C_CEDILLA>, <&capitalized FR_C_CEDILLA>;
-)
-
-ZMK_BEHAVIOR(e_acute, mod_morph,
-    mods = <(MOD_LSFT | MOD_RSFT)>;
-    bindings = <&kp FR_E_ACUTE>, <&capitalized FR_E_ACUTE>;
-)
-
-ZMK_BEHAVIOR(e_grave, mod_morph,
-    mods = <(MOD_LSFT | MOD_RSFT)>;
-    bindings = <&kp FR_E_GRAVE>, <&capitalized FR_E_GRAVE>;
-)
-
-ZMK_BEHAVIOR(a_grave, mod_morph,
-    mods = <(MOD_LSFT | MOD_RSFT)>;
-    bindings = <&kp FR_A_GRAVE>, <&capitalized FR_A_GRAVE>;
-)
-
-ZMK_BEHAVIOR(u_grave, mod_morph,
-    mods = <(MOD_LSFT | MOD_RSFT)>;
-    bindings = <&kp FR_U_GRAVE>, <&capitalized FR_U_GRAVE>;
-)
-
+CAPITALIZABLE(c_cedilla, FR_C_CEDILLA)
+CAPITALIZABLE(e_acute, FR_E_ACUTE)
+CAPITALIZABLE(e_grave, FR_E_GRAVE)
+CAPITALIZABLE(a_grave, FR_A_GRAVE)
+CAPITALIZABLE(u_grave, FR_U_GRAVE)
 
 / {
     combos {
