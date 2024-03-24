@@ -97,8 +97,8 @@ ZMK_BEHAVIOR(capitalized, macro_one_param,
         <&macro_tap &kp CAPSLOCK>;
 )
 
-#define CAPITALIZABLE(name, kc) ZMK_BEHAVIOR(name, mod_morph, \
-    mods = <(MOD_LSFT | MOD_RSFT)>; \
+#define CAPITALIZABLE(name, kc) ZMK_BEHAVIOR(name, tap_dance, \
+    tapping-term-ms = <300>; \
     bindings = <&kp kc>, <&capitalized kc>; \
 )
 
