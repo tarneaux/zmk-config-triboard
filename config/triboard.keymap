@@ -169,9 +169,9 @@ CAPITALIZABLE(u_grave, FR_U_GRAVE)
 //                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
-    &kp ESC            &kp FR_AT_SIGN    &kp FR_AMPERSAND &kp FR_DOLLAR &kp FR_PERCENT        &kp FR_CARET &kp FR_EQUAL  &kp FR_PLUS  &kp FR_E_ACUTE    &kp FR_E_GRAVE
+    &kp ESC            &kp FR_AT_SIGN    &kp FR_AMPERSAND &kp FR_DOLLAR &kp FR_PERCENT        &kp FR_CARET &kp FR_EQUAL  &kp FR_PLUS  &e_acute          &e_grave
     &hml LCTRL FR_HASH &hml LGUI FR_LPAR &kp FR_LBRC      &kp FR_LBKT   &kp FR_MINUS          &kp FR_BSLH  &kp FR_RBKT   &kp FR_RBRC  &hml LGUI FR_RPAR &hml LCTRL FR_PIPE
-    &kp FR_C_CEDILLA   &kp FR_ASTERISK   &kp FR_SQT       &kp FR_DQT    &kp FR_UNDERSCORE     &kp FR_GRAVE &kp FR_TILDE  &kp FR_EXCL  &kp FR_A_GRAVE    &kp FR_CIRCUMFLEX
+    &c_cedilla         &kp FR_ASTERISK   &kp FR_SQT       &kp FR_DQT    &kp FR_UNDERSCORE     &kp FR_GRAVE &kp FR_TILDE  &kp FR_EXCL  &a_grave          &kp FR_CIRCUMFLEX
                                         &trans           &trans         &trans                &kp DEL      &trans     &trans
                         >;
         };
@@ -195,7 +195,7 @@ CAPITALIZABLE(u_grave, FR_U_GRAVE)
              bindings = <
                 &kp FR_N1      &kp FR_N2            &kp FR_N3          &kp FR_N4   &kp FR_N5             &kp FR_N6   &kp FR_N7   &kp FR_N8   &kp FR_N9   &kp FR_N0
                 &kp LCTRL      &kp LGUI             &kp C_PREVIOUS     &kp C_NEXT  &kp FR_MIDDLE_DOT     &kp LCTRL   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
-                &kp FR_U_GRAVE &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &kp FR_EURO           &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
+                &u_grave       &kp C_VOLUME_DOWN    &kp C_VOLUME_UP    &kp C_PP    &kp FR_EURO           &kp LGUI    &kp HOME    &kp PG_UP   &kp PG_DN   &kp END
                                                     &trans             &trans      &mo ADJ               &trans      &trans      &trans
                         >;
         };
