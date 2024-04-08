@@ -62,7 +62,7 @@ ZMK_BEHAVIOR(tdbtclr, tap_dance,
 )
 
 &lt {
-  quick-tap-ms = <280>;
+  quick-tap-ms = <100>;
   global-quick-tap;
   flavor = "hold-preferred";
   tapping-term-ms = <170>;
