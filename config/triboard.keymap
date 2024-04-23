@@ -20,6 +20,7 @@
 #define SYM 1
 #define NAV 2
 #define ADJ 3
+#define SUP 4
 
 &mt {
   quick-tap-ms = <100>;
@@ -40,6 +41,17 @@ ZMK_BEHAVIOR(hml, hold_tap,
     quick-tap-ms = <175>; // repeat on tap-into-hold
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
+    hold-trigger-on-release; // delay positional check until key-release
+)
+
+/* left-hand HRM for SUPER layer */
+ZMK_BEHAVIOR(hmls, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>; // repeat on tap-into-hold
+    require-prior-idle-ms = <150>;
+    bindings = <&mo>, <&kp>;
     hold-trigger-key-positions = <KEYS_R KEYS_THUMBS>;
     hold-trigger-on-release; // delay positional check until key-release
 )
@@ -97,6 +109,24 @@ ZMK_BEHAVIOR(capitalized, macro_one_param,
         <&macro_tap &kp CAPSLOCK>;
 )
 
+// Tmux window switching
+ZMK_BEHAVIOR(tmws, macro_one_param,
+    bindings =
+        <&macro_press &kp LCTRL>,
+        <&macro_tap &kp FR_A>,
+        <&macro_release &kp LCTRL>,
+        <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
+)
+
+// Vim window switching
+ZMK_BEHAVIOR(viws, macro_one_param,
+    bindings =
+        <&macro_press &kp LCTRL>,
+        <&macro_tap &kp FR_W>,
+        <&macro_release &kp LCTRL>,
+        <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
+)
+
 #define CAPITALIZABLE(name, kc) ZMK_BEHAVIOR(name, tap_dance, \
     tapping-term-ms = <300>; \
     bindings = <&kp kc>, <&capitalized kc>; \
@@ -127,10 +157,10 @@ CAPITALIZABLE(u_grave, FR_U_GRAVE)
 //                         ┃           ┃    TAB    ┃    SPC    ┃   ┃    BSPC   ┃    ENT    ┃           ┃
 //                         ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
-     &kp FR_Q        &kp FR_W       &kp FR_F    &kp FR_P    &kp FR_B        &kp FR_J    &kp FR_L    &kp FR_U       &kp FR_Y       &semicolon_colon
-     &hml LCTRL FR_A &hml LGUI FR_R &kp FR_S    &kp FR_T    &kp FR_D        &kp FR_H    &kp FR_N    &kp FR_E       &hmr LGUI FR_I &hmr LCTRL FR_O
-     &kp FR_Z        &kp FR_X       &kp FR_C    &kp FR_G    &kp FR_V        &kp FR_K    &kp FR_M    &comma_lt      &dot_gt        &slash_question
-                                    &none   &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
+     &kp FR_Q        &kp FR_W       &kp FR_F       &kp FR_P    &kp FR_B        &kp FR_J    &kp FR_L    &kp FR_U       &kp FR_Y       &semicolon_colon
+     &hml LCTRL FR_A &hml LGUI FR_R &hmls SUP FR_S &kp FR_T    &kp FR_D        &kp FR_H    &kp FR_N    &kp FR_E       &hmr LGUI FR_I &hmr LCTRL FR_O
+     &kp FR_Z        &kp FR_X       &kp FR_C       &kp FR_G    &kp FR_V        &kp FR_K    &kp FR_M    &comma_lt      &dot_gt        &slash_question
+                                    &none          &mt LSHFT TAB   &lt SYM SPACE   &kp BSPC    &lt NAV RET &none
                         >;
         };
 
@@ -203,6 +233,30 @@ CAPITALIZABLE(u_grave, FR_U_GRAVE)
                 &sys_reset  &out OUT_TOG  &tdbtclr     &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
                 &bootloader &bt BT_SEL 0  &kp LCTRL    &kp LGUI    &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11  
                 &trans      &bt BT_SEL 1  &bt BT_SEL 2 &kp LALT    &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10 
+                                          &trans       &trans      &trans          &trans      &trans      &trans      
+                        >;
+        };
+
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+        super_layer {
+
+// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            label= "SUP";
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+//             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
+//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+//             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
+//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+//             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
+//             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┛
+//                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
+//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+             bindings = <
+
+                &trans      &trans        &trans       &trans      &trans          &trans      &trans      &trans      &trans      &trans
+                &trans      &trans        &trans       &trans      &trans          &trans      &tmws LEFT  &tmws UP    &tmws DOWN  &tmws RIGHT
+                &trans      &trans        &trans       &trans      &trans          &trans      &viws LEFT  &viws UP    &viws DOWN  &viws RIGHT
                                           &trans       &trans      &trans          &trans      &trans      &trans      
                         >;
         };
