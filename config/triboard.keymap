@@ -54,6 +54,31 @@ ZMK_BEHAVIOR(tdbtclr, tap_dance,
     bindings = <&none>, <&none>, <&none>, <&none>, <&bt BT_CLR>;
 )
 
+// Tmux window switching
+ZMK_BEHAVIOR(tmws, macro_one_param,
+    bindings =
+        <&macro_press &kp LCTRL>,
+        <&macro_tap &kp FR_A>,
+        <&macro_release &kp LCTRL>,
+        <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
+)
+
+// Vim window switching
+ZMK_BEHAVIOR(viws, macro_one_param,
+    bindings =
+        <&macro_press &kp LCTRL>,
+        <&macro_tap &kp FR_W>,
+        <&macro_release &kp LCTRL>,
+        <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
+)
+
+/*
+                    ┏━╸┏━┓┏━╸┏┓╻┏━╸╻ ╻   ╻  ┏━┓╻ ╻┏━┓╻ ╻╺┳╸
+                    ┣╸ ┣┳┛┣╸ ┃┗┫┃  ┣━┫   ┃  ┣━┫┗┳┛┃ ┃┃ ┃ ┃
+                    ╹  ╹┗╸┗━╸╹ ╹┗━╸╹ ╹   ┗━╸╹ ╹ ╹ ┗━┛┗━┛ ╹
+                                    Baguette
+*/
+
 // Keep the US keyboard's shift behaviors on the french virtual layout
 
 ZMK_BEHAVIOR(comma_lt, mod_morph,
@@ -73,32 +98,13 @@ ZMK_BEHAVIOR(semicolon_colon, mod_morph,
     bindings = <&kp FR_SEMI>, <&kp FR_COLON>;
 )
 
-// Allow capital french letters (ç, é, è, à, ù) to be typed with a single key press
-// To type a capital letter, toggle the caps lock key and press the key again
-// Let's start by defining a macro for each of these capital letters
+// Allow capital french letters (ç, é, è, à, ù) to be typed with a single key
+// press.
 ZMK_BEHAVIOR(capitalized, macro_one_param,
     bindings =
-        <&macro_tap &kp CAPSLOCK>,
-        <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>,
-        <&macro_tap &kp CAPSLOCK>;
-)
-
-// Tmux window switching
-ZMK_BEHAVIOR(tmws, macro_one_param,
-    bindings =
-        <&macro_press &kp LCTRL>,
-        <&macro_tap &kp FR_A>,
-        <&macro_release &kp LCTRL>,
-        <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
-)
-
-// Vim window switching
-ZMK_BEHAVIOR(viws, macro_one_param,
-    bindings =
-        <&macro_press &kp LCTRL>,
-        <&macro_tap &kp FR_W>,
-        <&macro_release &kp LCTRL>,
-        <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
+        <&macro_tap &kp CAPSLOCK>, // Press down caps lock
+        <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, // Press the key
+        <&macro_tap &kp CAPSLOCK>; // Release caps lock
 )
 
 #define CAPITALIZABLE(name, kc) ZMK_BEHAVIOR(name, tap_dance, \
