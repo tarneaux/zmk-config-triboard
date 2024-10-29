@@ -22,6 +22,7 @@
 #define NAV 2
 #define ADJ 3
 #define SUP 4
+#define MOU 5
 
 /*
                         ┏┓ ┏━┓┏━┓╻┏━╸   ┏━╸┏━┓┏┓╻┏━╸╻┏━╸
