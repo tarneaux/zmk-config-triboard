@@ -48,7 +48,7 @@
                  ┗━╸┗━┛┗━┛ ╹ ┗━┛╹ ╹   ┗━┛┗━╸╹ ╹╹ ╹┗┛ ╹┗━┛╹┗╸┗━┛
 */
 
-/* 5 press key to prevent clearing bluetooth bond accidentally */
+/* 5 press key to prevent clearing bluetooth bond by accident */
 ZMK_BEHAVIOR(tdbtclr, tap_dance,
     tapping-term-ms = <300>;
     bindings = <&none>, <&none>, <&none>, <&none>, <&bt BT_CLR>;
