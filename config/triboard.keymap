@@ -21,6 +21,7 @@
 #define NAV 2
 #define ADJ 3
 #define SUP 4
+#define GAME 5
 
 /*
                         ┏┓ ┏━┓┏━┓╻┏━╸   ┏━╸┏━┓┏┓╻┏━╸╻┏━╸
@@ -265,7 +266,7 @@ ZMK_BEHAVIOR(hls, hold_tap,
             label= "ADJ";
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃   RESET   ┃ OUT TOG   ┃ BT CLEAR  ┃           ┃           ┃   ┃           ┃    F7     ┃    F8     ┃    F9     ┃    F12    ┃
+//             ┃   RESET   ┃ OUT TOG   ┃ BT CLEAR  ┃   GAME    ┃           ┃   ┃           ┃    F7     ┃    F8     ┃    F9     ┃    F12    ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
 //             ┃ BOOTLOAD  ┃ BT 0      ┃ CTRL      ┃ GUI       ┃           ┃   ┃           ┃    F4     ┃    F5     ┃    F6     ┃    F11    ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
@@ -275,7 +276,7 @@ ZMK_BEHAVIOR(hls, hold_tap,
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
 
-                &sys_reset  &out OUT_TOG  &tdbtclr     &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
+                &sys_reset  &out OUT_TOG  &tdbtclr     &tog GAME   &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
                 &bootloader &bt BT_SEL 0  &kp LCTRL    &kp LGUI    &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11  
                 &trans      &bt BT_SEL 1  &bt BT_SEL 2 &kp LALT    &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10 
                                           &trans       &trans      &trans          &trans      &trans      &trans      
@@ -303,6 +304,30 @@ ZMK_BEHAVIOR(hls, hold_tap,
                 &trans      &trans        &trans       &trans      &trans          &trans      &tmws LEFT  &tmws UP    &tmws DOWN  &tmws RIGHT
                 &trans      &trans        &trans       &trans      &trans          &trans      &viws LEFT  &viws UP    &viws DOWN  &viws RIGHT
                                           &trans       &trans      &trans          &trans      &trans      &trans      
+                        >;
+        };
+
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+        game_layer {
+
+// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            label= "GAME";
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+//             ┃     "     ┃     A     ┃     '     ┃     E     ┃     R     ┃   ┃           ┃           ┃           ┃           ┃           ┃
+//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+//             ┃    SFT    ┃     Q     ┃     Z     ┃     D     ┃     F     ┃   ┃           ┃           ┃           ┃           ┃           ┃
+//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+//             ┃    CTRL   ┃     W     ┃     S     ┃     X     ┃     C     ┃   ┃           ┃           ┃           ┃           ┃           ┃
+//             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┛
+//                                     ┃           ┃    SFT    ┃    SPC    ┃   ┃           ┃           ┃           ┃
+//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+             bindings = <
+
+                &kp FR_DQT  &kp FR_A      &kp FR_SQT   &kp FR_E    &kp FR_R      &tog GAME   &tog GAME   &tog GAME   &tog GAME   &tog GAME
+                &kp LSHFT   &kp FR_Q      &kp FR_Z     &kp FR_D    &kp FR_F      &tog GAME   &tog GAME   &tog GAME   &tog GAME   &tog GAME
+                &kp LCTRL   &kp FR_W      &kp FR_S     &kp FR_X    &kp FR_C      &tog GAME   &tog GAME   &tog GAME   &tog GAME   &tog GAME
+                                          &trans       &kp LSHFT   &kp SPACE     &tog GAME   &tog GAME   &tog GAME
                         >;
         };
     };
