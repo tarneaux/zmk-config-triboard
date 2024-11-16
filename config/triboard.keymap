@@ -314,7 +314,7 @@ ZMK_BEHAVIOR(hls, hold_tap,
             label= "GAME";
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃     "     ┃     A     ┃     '     ┃     E     ┃     R     ┃   ┃           ┃           ┃           ┃           ┃           ┃
+//             ┃    ESC    ┃     A     ┃     '     ┃     E     ┃     R     ┃   ┃           ┃           ┃           ┃           ┃           ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
 //             ┃    SFT    ┃     Q     ┃     Z     ┃     D     ┃     F     ┃   ┃           ┃           ┃           ┃           ┃           ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
@@ -324,7 +324,7 @@ ZMK_BEHAVIOR(hls, hold_tap,
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
 
-                &kp FR_DQT  &kp FR_A      &kp FR_SQT   &kp FR_E    &kp FR_R      &tog GAME   &tog GAME   &tog GAME   &tog GAME   &tog GAME
+                &kp ESC     &kp FR_A      &kp FR_SQT   &kp FR_E    &kp FR_R      &tog GAME   &tog GAME   &tog GAME   &tog GAME   &tog GAME
                 &kp LSHFT   &kp FR_Q      &kp FR_Z     &kp FR_D    &kp FR_F      &tog GAME   &tog GAME   &tog GAME   &tog GAME   &tog GAME
                 &kp LCTRL   &kp FR_W      &kp FR_S     &kp FR_X    &kp FR_C      &tog GAME   &tog GAME   &tog GAME   &tog GAME   &tog GAME
                                           &trans       &kp LSHFT   &kp SPACE     &tog GAME   &tog GAME   &tog GAME
