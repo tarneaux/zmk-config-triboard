@@ -8,6 +8,9 @@
 // ⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢿⣿⣿⡄
 // ⠀⢀⣴⣾⣿⣿⣿⣷⣦⣄⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉
 // ⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀
+//
+// // Titles generated with toilet -f future. An alt text is included every time
+// // for screen readers.
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -26,6 +29,7 @@
                         ┏┓ ┏━┓┏━┓╻┏━╸   ┏━╸┏━┓┏┓╻┏━╸╻┏━╸
                         ┣┻┓┣━┫┗━┓┃┃     ┃  ┃ ┃┃┗┫┣╸ ┃┃╺┓
                         ┗━┛╹ ╹┗━┛╹┗━╸   ┗━╸┗━┛╹ ╹╹  ╹┗━┛
+                                 (Basic Config)
 */
 
 &mt {
@@ -46,6 +50,7 @@
                  ┏━╸╻ ╻┏━┓╺┳╸┏━┓┏┳┓   ┏┓ ┏━╸╻ ╻┏━┓╻ ╻╻┏━┓┏━┓┏━┓
                  ┃  ┃ ┃┗━┓ ┃ ┃ ┃┃┃┃   ┣┻┓┣╸ ┣━┫┣━┫┃┏┛┃┃ ┃┣┳┛┗━┓
                  ┗━╸┗━┛┗━┛ ╹ ┗━┛╹ ╹   ┗━┛┗━╸╹ ╹╹ ╹┗┛ ╹┗━┛╹┗╸┗━┛
+                               (Custom Behaviors)
 */
 
 /* 5 press key to prevent clearing bluetooth bond by accident */
@@ -76,6 +81,7 @@ ZMK_BEHAVIOR(viws, macro_one_param,
                     ┏━╸┏━┓┏━╸┏┓╻┏━╸╻ ╻   ╻  ┏━┓╻ ╻┏━┓╻ ╻╺┳╸
                     ┣╸ ┣┳┛┣╸ ┃┗┫┃  ┣━┫   ┃  ┣━┫┗┳┛┃ ┃┃ ┃ ┃
                     ╹  ╹┗╸┗━╸╹ ╹┗━╸╹ ╹   ┗━╸╹ ╹ ╹ ┗━┛┗━┛ ╹
+                                (French Layout)
                                     Baguette
 */
 
@@ -122,6 +128,7 @@ CAPITALIZABLE(u_grave, FR_U_GRAVE)
                       ╻ ╻┏━┓┏┳┓╻┏━┓   ┏┓     ╻ ╻┏┳┓╻  ╻┏━┓
                       ┣━┫┣┳┛┃┃┃ ┗━┓   ┃╺╋╸   ┣━┫┃┃┃┃   ┗━┓
                       ╹ ╹╹┗╸╹ ╹ ┗━┛   ┗━┛    ╹ ╹╹ ╹┗━╸ ┗━┛
+                                (HRM's & HML's)
                       Home-Row Modifiers & Home-Row Layers
 
                      Based on Urob's timeless home row mods:
@@ -181,6 +188,7 @@ ZMK_BEHAVIOR(hls, hold_tap,
                                ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
                                ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
                                ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
+                                    (Keymap)
 */
 
 / {
