@@ -125,10 +125,10 @@ CAPITALIZABLE(a_grave, FR_A_GRAVE)
 CAPITALIZABLE(u_grave, FR_U_GRAVE)
 
 /*
-                      ╻ ╻┏━┓┏┳┓╻┏━┓   ┏┓     ╻ ╻┏┳┓╻  ╻┏━┓
-                      ┣━┫┣┳┛┃┃┃ ┗━┓   ┃╺╋╸   ┣━┫┃┃┃┃   ┗━┓
-                      ╹ ╹╹┗╸╹ ╹ ┗━┛   ┗━┛    ╹ ╹╹ ╹┗━╸ ┗━┛
-                                (HRM's & HML's)
+                      ╻ ╻┏━┓┏┳┓╻┏━┓   ┏┓     ╻ ╻┏━┓╻  ╻┏━┓
+                      ┣━┫┣┳┛┃┃┃ ┗━┓   ┃╺╋╸   ┣━┫┣┳┛┃   ┗━┓
+                      ╹ ╹╹┗╸╹ ╹ ┗━┛   ┗━┛    ╹ ╹╹┗╸┗━╸ ┗━┛
+                                (HRM's & HRL's)
                       Home-Row Modifiers & Home-Row Layers
 
                      Based on Urob's timeless home row mods:
@@ -237,7 +237,7 @@ ZMK_BEHAVIOR(hls, hold_tap,
     &kp ESC            &kp FR_AT_SIGN    &kp FR_AMPERSAND &kp FR_DOLLAR &kp FR_PERCENT        &kp FR_CARET &kp FR_EQUAL  &kp FR_PLUS  &e_acute          &e_grave
     &hml LCTRL FR_HASH &hml LGUI FR_LPAR &kp FR_LBRC      &kp FR_LBKT   &kp FR_MINUS          &kp FR_BSLH  &kp FR_RBKT   &kp FR_RBRC  &hml LGUI FR_RPAR &hml LCTRL FR_PIPE
     &c_cedilla         &kp FR_ASTERISK   &kp FR_SQT       &kp FR_DQT    &kp FR_UNDERSCORE     &kp FR_GRAVE &kp FR_TILDE  &kp FR_EXCL  &a_grave          &kp FR_CIRCUMFLEX
-                                        &trans           &trans         &trans                &kp DEL      &trans     &trans
+                                         &trans           &trans        &trans                &kp DEL      &trans        &trans
                         >;
         };
 
