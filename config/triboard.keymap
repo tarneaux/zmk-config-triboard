@@ -235,7 +235,7 @@ ZMK_BEHAVIOR(hls, hold_tap,
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
              bindings = <
     &kp ESC            &kp FR_AT_SIGN    &kp FR_AMPERSAND &kp FR_DOLLAR &kp FR_PERCENT        &kp FR_CARET &kp FR_EQUAL  &kp FR_PLUS  &e_acute          &e_grave
-    &hml LCTRL FR_HASH &hml LGUI FR_LPAR &kp FR_LBRC      &kp FR_LBKT   &kp FR_MINUS          &kp FR_BSLH  &kp FR_RBKT   &kp FR_RBRC  &hml LGUI FR_RPAR &hml LCTRL FR_PIPE
+    &hml LCTRL FR_HASH &hml LGUI FR_LPAR &kp FR_LBRC      &kp FR_LBKT   &kp FR_MINUS          &kp FR_BSLH  &kp FR_RBKT   &kp FR_RBRC  &hmr LGUI FR_RPAR &hmr LCTRL FR_PIPE
     &c_cedilla         &kp FR_ASTERISK   &kp FR_SQT       &kp FR_DQT    &kp FR_UNDERSCORE     &kp FR_GRAVE &kp FR_TILDE  &kp FR_EXCL  &a_grave          &kp FR_CIRCUMFLEX
                                          &trans           &trans        &trans                &kp DEL      &trans        &trans
                         >;
