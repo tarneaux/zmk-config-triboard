@@ -3,7 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     zmk-nix = {
-      url = "github:lilyinstarlight/zmk-nix";
+      url = "github:tarneaux/zmk-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

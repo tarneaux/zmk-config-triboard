@@ -6,15 +6,10 @@ It is heavily based on GEIGEIGEIST's [TOTEM ZMK config](https://github.com/GEIGE
 
 ![Keymap drawing](https://github.com/user-attachments/assets/0a14ae99-9cc9-4066-b515-f84c9055994b)
 
-## Building with Nix
+## Flashing with Nix
 
 ```sh
 nix run .#flash
-```
-
-To mount the devices:
-```sh
-doas mount /dev/disk/by-label/XIAO-SENSE /mnt -o uid=1000 -o gid=100
 ```
 
 ## Maintenance

@@ -2,11 +2,11 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1756536218,
-        "narHash": "sha256-ynQxPVN2FIPheUgTFhv01gYLbaiSOS7NgWJPm9LF9D0=",
+        "lastModified": 1756636162,
+        "narHash": "sha256-mBecwgUTWRgClJYqcF+y4O1bY8PQHqeDpB+zsAn+/zA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a918bb3594dd243c2f8534b3be01b3cb4ed35fd1",
+        "rev": "37ff64b7108517f8b6ba5705ee5085eac636a249",
         "type": "github"
       },
       "original": {
@@ -29,15 +29,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1755996056,
-        "narHash": "sha256-CeoGlpvWhWpgnwxRwGsIig43USi+qxXldVmVbF/jw8I=",
-        "owner": "lilyinstarlight",
+        "lastModified": 1756733638,
+        "narHash": "sha256-hk1jACiR9cHqBXZ4svZUhpuI6UpV0jJHHIevxXn0nfU=",
+        "owner": "tarneaux",
         "repo": "zmk-nix",
-        "rev": "b8c745618f4cb7696e1c9b18ad0e9fbee738bb74",
+        "rev": "993923b5d1671723c11fbdefb2f7572b3cba1d18",
         "type": "github"
       },
       "original": {
-        "owner": "lilyinstarlight",
+        "owner": "tarneaux",
         "repo": "zmk-nix",
         "type": "github"
       }
